@@ -1,12 +1,12 @@
 ﻿@model List<Libro>
 
 <h1>Libros disponibles:</h1>
-
+<a asp-controller="Libro" asp-action="InsertarLibro">Crear Libro</a>
 @foreach (Libro l in Model)
 {
     <h2>@l.Titulo</h2>
     <h2>
-        @Html.ActionLink("Detalles","LibroDetalles","Libro",
+        @Html.ActionLink("Detalles", "LibroDetalles", "Libro",
        new { idLibro = l.IdLibro })
     </h2>
     <h2>
@@ -14,5 +14,3 @@
    new { idLibro = l.IdLibro })
     </h2>
 }
-
-<a asp-controller="Libro" asp-action="InsertarLibro">Crear Libro</a>

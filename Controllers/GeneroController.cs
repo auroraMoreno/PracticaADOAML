@@ -25,6 +25,8 @@ namespace PracticaADOAML.Controllers
 
         public IActionResult BuscarLibros()
         {
+            List<Genero> generos = this.context.GetGeneros();
+            ViewBag.Generos = generos;
             return View();
         }
 

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PracticaADOAML.Data
 {
-    #region PROCEDIMIENTOS ALMACENADOS
+    #region CREAR LIBROS
     //CREAR LIBROS
     //CREATE PROCEDURE CREARLIBRO
     //(@IDLIBRO INT,
@@ -26,7 +26,9 @@ namespace PracticaADOAML.Data
     //@IMAGEN,
     //@IDGENERO)
     //GO
+    #endregion 
 
+    #region CREAR GENEROS
     //CREAR GENEROS
     //    CREATE PROCEDURE CREARGENERO
     //(@IDGENERO INT, @GENERO NVARCHAR(30))
@@ -34,24 +36,25 @@ namespace PracticaADOAML.Data
     //INSERT INTO Generos VALUES(@IDGENERO, @GENERO)
     //GO
 
-    //UPDATE LIBRO
 
-//CREATE PROCEDURE UPDATELIBRO
-//(@IDLIBRO INT,
-//@TITULO NVARCHAR(30), 
-//@AUTOR NVARCHAR(30), 
-//@SINOPSIS NVARCHAR(40),
-//@IMAGEN NVARCHAR(30), 
-//@IDGENERO INT)
-//AS
-//UPDATE Libros SET
-//Titulo = @TITULO, 
-//Autor=@AUTOR, 
-//Sinopsis= @SINOPSIS,
-//Imagen = @IMAGEN,
-//IdGenero= @IDGENERO
-//WHERE IdLibro = @IDLIBRO
-//GO
+    #endregion
+    #region UPDATE LIBRO
+    //CREATE PROCEDURE UPDATELIBRO
+    //(@IDLIBRO INT,
+    //@TITULO NVARCHAR(30), 
+    //@AUTOR NVARCHAR(30), 
+    //@SINOPSIS NVARCHAR(40),
+    //@IMAGEN NVARCHAR(30), 
+    //@IDGENERO INT)
+    //AS
+    //UPDATE Libros SET
+    //Titulo = @TITULO, 
+    //Autor=@AUTOR, 
+    //Sinopsis= @SINOPSIS,
+    //Imagen = @IMAGEN,
+    //IdGenero= @IDGENERO
+    //WHERE IdLibro = @IDLIBRO
+    //GO
 
     #endregion
     public class LibreriaContext
@@ -84,6 +87,10 @@ namespace PracticaADOAML.Data
         public List<Libro> GetLibros()
         {
             var consulta = from datos in this.tablaLibros.AsEnumerable() select datos;
+            //var consulta2 = from librosDatos in this.tablaLibros.AsEnumerable()
+            //                from generos in this.tablaGeneros.AsEnumerable()
+            //                select librosDatos;
+
             List<Libro> libros = new List<Libro>();
             foreach(var l in consulta)
             {

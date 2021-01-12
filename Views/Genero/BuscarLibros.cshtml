@@ -3,15 +3,36 @@
 <h1>Buscar libro por genero: </h1>
 <form method="post">
     <label>Id Genero: </label>
-    <input type="number" name="idGenero"/>
-    <button>Buscar</button>
+    <input type="number" name="idGenero" />
+    <button type="submit">Buscar</button>
 </form>
 
-<hr/>
-@if (Model !=null)
-{
-    @foreach (Libro l in Model)
-    {
-        <h2>@l.Titulo</h2>
-    }
+@{
+    List<Genero> generos = ViewBag.Generos as List<Genero>;
 }
+@if (generos != null)
+{
+    <form method="post">
+        <label>genero:</label>
+
+        <select name="idGenero">
+
+            @foreach (Genero g in generos)
+            {
+                <option value="@g.IdGenero">@g.GeneroNombre</option>
+            }
+
+        </select>
+        <button type="submit">Encontrar</button>
+    </form>
+}
+
+<a asp-controller="Genero" asp-action="BuscarLibros">Volver a buscar:</a>
+    <hr />
+    @if (Model != null)
+    {
+        @foreach (Libro l in Model)
+        {
+            <h2>@l.Titulo</h2>
+        }
+    }

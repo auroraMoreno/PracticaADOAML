@@ -1,12 +1,12 @@
 ﻿@model List<Genero>
 
 <h1>Generos:</h1>
+<a asp-controller="Genero" asp-action="BuscarLibros">Buscar libros por generos</a>
+<a asp-controller="Genero" asp-action="InsertarGenero">Insertar Genero</a>
 @foreach (Genero g in Model)
 {
     <h3>@g.GeneroNombre - @g.IdGenero</h3>
     @Html.ActionLink("Eliminar", "GetGenero", "Genero",
-      new { idGenero = g.IdGenero})
+      new { idGenero = g.IdGenero })
 }
 
-<a asp-controller="Genero" asp-action="BuscarLibros">Buscar libros por generos</a>
-<a asp-controller="Genero" asp-action="InsertarGenero">Insertar Genero</a>
