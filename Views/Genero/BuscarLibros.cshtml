@@ -1,0 +1,17 @@
+﻿@model List<Libro>
+
+<h1>Buscar libro por genero: </h1>
+<form method="post">
+    <label>Id Genero: </label>
+    <input type="number" name="idGenero"/>
+    <button>Buscar</button>
+</form>
+
+<hr/>
+@if (Model !=null)
+{
+    @foreach (Libro l in Model)
+    {
+        <h2>@l.Titulo</h2>
+    }
+}
